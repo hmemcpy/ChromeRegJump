@@ -1,0 +1,9 @@
+{
+  "name": "com.hmemcpy.chrome.regjump",
+  "description": "RegJump for Chrome",
+  "path": "run-host.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://pfdpkffdkkflnbifeahappmbejnbfiem/"
+  ]
+}

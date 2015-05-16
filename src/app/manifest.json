@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "RegJump for Chrome",
+  "description": "Opens the selected registry key text in regedit using Sysinternals RegJump (https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx).",
+  "version": "1.0.0",
+  "background": {
+      "persistent": true,
+      "scripts": [ "script.js" ]
+   },
+  "permissions": ["contextMenus", "nativeMessaging"],
+  "icons": {
+          "16": "regedit-icon.png"
+  }
+}

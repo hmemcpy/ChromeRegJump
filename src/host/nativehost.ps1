@@ -1,4 +1,19 @@
-﻿
+﻿function Respond($response) {
+    $msg = $response | ConvertTo-Json
+
+    try {
+        $writer = New-Object System.IO.BinaryWriter([System.Console]::OpenStandardOutput())
+        $writer.Write([int]$msg.Length)
+        $buf = [System.Text.Encoding]::UTF8.GetBytes($msg)
+        $writer.Write($buf)
+        $writer.Close()
+    } finally {
+        $writer.Dispose()
+    }
+}
+
+$regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjumsp.exe")
+
 try {
     $reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
     $len = $reader.ReadInt32()
@@ -6,6 +21,15 @@ try {
     $msg = [System.Text.Encoding]::UTF8.GetString($buf)
 
     $obj = $msg | ConvertFrom-Json
+
+    if ($obj.Status -eq "validate") {
+        if (-not (Test-Path $regJump)) {
+            return Respond @{message="regjump";regJumpPath=[System.IO.Path]::GetDirectoryName($regJump)}
+        }
+
+        return Respond @{message="ok"}
+    }
+
     $regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjump.exe")
     
     if (-not (Test-Path $regJump)) {

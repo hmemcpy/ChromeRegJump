@@ -24,7 +24,7 @@ function setExtensionId() {
   var author = document.getElementById('author');
   author.textContent = chrome.runtime.getManifest().author;
   var version = document.getElementById('version');
-  version.textContent = chrome.runtime.getManifest().version;
+  version.textContent = "v" + chrome.runtime.getManifest().version;
   var homepage_url = document.getElementById('homepage_url');
   homepage_url.href = chrome.runtime.getManifest().homepage_url;
 }

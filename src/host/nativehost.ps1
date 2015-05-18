@@ -22,8 +22,6 @@ try {
 
     $obj = $msg | ConvertFrom-Json
 
-    $regJump | Out-File "d:\log.txt"
-
     if ($obj.Status -eq "validate") {
         if (-not (Test-Path $regJump)) {
             return Respond @{message="regjump";regJumpPath=[System.IO.Path]::GetDirectoryName($regJump)}

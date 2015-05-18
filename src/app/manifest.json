@@ -12,6 +12,7 @@
   "options_page": "options.html",
   "permissions": ["contextMenus", "nativeMessaging"],
   "icons": {
-          "16": "regedit-icon.png"
+          "16": "regedit-icon.png",
+          "256": "regedit-logo.png"
   }
 }

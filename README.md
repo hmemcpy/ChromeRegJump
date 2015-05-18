@@ -8,4 +8,8 @@ After installing the extension, a page with instructions will open. You have to 
 ### Install from Chrome Web Store
 https://chrome.google.com/webstore/detail/chome-registry-jumper/ihjgnaklogcickonfphakiihgjpkdheh
 
+### Bugs? Questions? Suggestions?
+
+Please feel free to [report them](../../issues) and send a pull request!
+
 ![](http://i.imgur.com/U6PJlH8.gif)

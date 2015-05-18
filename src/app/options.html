@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head><title>Chrome Registry Jumper</title></head>
+<head>
+  <title>Chrome Registry Jumper</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
 
-<div id="status"></div>
+<h2>Chrome Registry Jumper</h2>
+<span id="version"></span> by <a id="homepage_url" href="#"><span id="author"></span></a>
+<hr>
+
+<p>You're almost done! There are 2 things required to make this extension work:</p>
+<ol>
+  <li>
+    <p>
+      Download <a href="https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx">Sysinternals RegJump</a> from Microsoft, and extract it to:
+    </p>
+    <pre><strong>%LOCALAPPDATA\Google\Chrome\User Data\Default\Extensions\<span class="extension_id"></span>\host\regjump</strong></pre>
+
+  </li>
+  <li>
+    <p>
+      Register the host program to communicate with RegJump, by running <code>register-host.bat</code> located in:
+    </p>
+    <pre><strong>%LOCALAPPDATA\Google\Chrome\User Data\Default\Extensions\<span class="extension_id"></span>\host</strong></pre>
+  </li>
+</ol>
+
+When you're done, press the Verify button to make sure everything is up and running!
+
 <button id="verify">Verify</button>
+<div id="status" class="alert" role="alert"></div>
 
 <script src="options.js"></script>
 </body>

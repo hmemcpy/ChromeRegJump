@@ -5,7 +5,7 @@ var openInRegJump = function(selectedText) {
 }
 
 chrome.contextMenus.create({
-  title: "Open %s in Regedit",
+  title: "Open %s in Registry Editor",
   contexts:["selection"],
   onclick: function(info, tab) {
      openInRegJump(info.selectionText);

@@ -29,8 +29,6 @@ try {
 
         return Respond @{message="ok"}
     }
-
-    $regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjump.exe")
     
     if (-not (Test-Path $regJump)) {
 

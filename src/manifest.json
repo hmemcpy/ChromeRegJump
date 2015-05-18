@@ -3,7 +3,7 @@
   "name": "Chome Registry Jumper",
   "author": "Igal Tabachnik",
   "homepage_url": "https://github.com/hmemcpy/ChromeRegJump",
-  "description": "Opens the selected registry key text in regedit using Sysinternals RegJump (https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx).",
+  "description": "Opens the selected registry key in regedit using Sysinternals RegJump (https://technet.microsoft.com/en-us/sysinternals/bb963880)",
   "version": "0.1",
   "background": {
       "persistent": true,

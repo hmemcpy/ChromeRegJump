@@ -1,9 +1,9 @@
 {
   "name": "com.hmemcpy.chrome.regjump",
-  "description": "RegJump for Chrome",
+  "description": "Chrome Registry Jumper Native Host",
   "path": "run-host.bat",
   "type": "stdio",
   "allowed_origins": [
-    "chrome-extension://pfdpkffdkkflnbifeahappmbejnbfiem/"
+    "chrome-extension://ihjgnaklogcickonfphakiihgjpkdheh/"
   ]
 }

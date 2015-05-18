@@ -20,6 +20,10 @@ function setExtensionId() {
   for (var i = 0; i < elements.length; i++) {
     elements[i].textContent = chrome.runtime.id;
   }
+  elements = document.getElementsByClassName('version');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].textContent = chrome.runtime.getManifest().version;
+  }
 
   var author = document.getElementById('author');
   author.textContent = chrome.runtime.getManifest().author;

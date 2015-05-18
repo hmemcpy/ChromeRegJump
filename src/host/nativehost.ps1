@@ -12,7 +12,7 @@
     }
 }
 
-$regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjumsp.exe")
+$regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjump.exe")
 
 try {
     $reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
@@ -21,6 +21,8 @@ try {
     $msg = [System.Text.Encoding]::UTF8.GetString($buf)
 
     $obj = $msg | ConvertFrom-Json
+
+    $regJump | Out-File "d:\log.txt"
 
     if ($obj.Status -eq "validate") {
         if (-not (Test-Path $regJump)) {

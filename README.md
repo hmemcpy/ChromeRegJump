@@ -18,7 +18,7 @@ In addition, you will have to download RegJump and place it in the `regjump` fol
 
 The main goal of this extension is to send the selected text on a page (which should be a registry path, e.g. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT`) to a utility from Sysinternals called [RegJump](https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx), which handles the actual opening regedit and jumping to the specified key.
 
-However, it is not possible to launch 3<sup>rd</sup> party executables from Chrome - that's not allowed for very good reasons. 
+However, it is not possible to launch 3<sup>rd</sup> party executables from Chrome directly - that's not allowed for very good reasons. 
 
 Previously, it was possible to use [NPAPI](http://en.wikipedia.org/wiki/NPAPI) to host a native plugin in Chrome (like Java or Silverlight), but that was deprecated, and as of recently, [removed from Chrome completely](http://blog.chromium.org/2014/11/the-final-countdown-for-npapi.html).
 

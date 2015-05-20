@@ -8,8 +8,7 @@ Chrome extension to open any selected Windows Registry path in Registry Editor u
 
 ## Installation instructions
 
-#### Windows 7 users
-This extension requires PowerShell 3, please download and install PowerShell 3 for your OS architecture:
+**Windows 7 users**: This extension requires PowerShell 3, please download and install PowerShell 3 for your OS architecture:
  * 32-bit: http://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x86.msu
  * 64-bit: http://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu
 

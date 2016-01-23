@@ -1,4 +1,7 @@
-﻿function Respond($response) {
+﻿function Respond {
+    [Parameter(Mandatory=$true)]
+    Param([string]$response)
+    
     $msg = $response | ConvertTo-Json
 
     try {
@@ -12,44 +15,29 @@
     }
 }
 
-$regJump = [System.IO.Path]::Combine($PSScriptRoot, "regjump", "regjump.exe")
+function Start-RegEdit {
+	Param([string]$target="HKCU")
+
+    #put value in LastKey as if that's the key the user was in a previous run
+    $regedit = "Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit"
+    Set-ItemProperty -Path $regedit -Name LastKey -Value $target -Type String
+
+    #start regedit (-m for new instance)
+    Start-Process -FilePath $env:windir\regedit.exe -ArgumentList "-m" -Verb runas
+}
 
 try {
-    $reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
+	$reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
     $len = $reader.ReadInt32()
     $buf = $reader.ReadBytes($len)
     $msg = [System.Text.Encoding]::UTF8.GetString($buf)
 
     $obj = $msg | ConvertFrom-Json
-
     if ($obj.Status -eq "validate") {
-        if (-not (Test-Path $regJump)) {
-            return Respond @{message="regjump";regJumpPath=[System.IO.Path]::GetDirectoryName($regJump)}
-        }
-
         return Respond @{message="ok"}
     }
     
-    if (-not (Test-Path $regJump)) {
-
-        $wshell = New-Object -ComObject Wscript.Shell
-        $popup = @"
-Unable to locate 'regjump.exe' in '$([System.IO.Path]::GetDirectoryName($regJump))'
-
-Please download Sysinternals RegJump from the Microsoft website (https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx), 
-and place it in the directory above.
-
-Use 'Ctrl-C' to copy this message to the clipboard.
-"@
-        $wshell.Popup($popup,0,"Chrome Registry Jumper", 0x0 + 0x30)
-        return
-    }
-
-    $si = New-Object System.Diagnostics.ProcessStartInfo($regJump)
-    $si.Arguments = $obj.Text
-    $si.Verb = "runas"
-
-    [System.Diagnostics.Process]::Start($si)
+	Start-RegEdit -Path $obj.Text
 
 } finally {
     $reader.Dispose()

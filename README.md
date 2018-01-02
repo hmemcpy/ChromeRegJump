@@ -1,6 +1,7 @@
+<img src="https://raw.githubusercontent.com/hmemcpy/ChromeRegJump/master/src/regedit-logo.png" width="64" align="right" />
 
-<img src="https://raw.githubusercontent.com/hmemcpy/ChromeRegJump/master/src/regedit-logo.png" width="64" />
-# Chrome Registry Jumper
+Chrome Registry Jumper
+====
 
 Chrome extension to open any selected Windows Registry path in Registry Editor using [Sysinternals RegJump](https://technet.microsoft.com/en-us/sysinternals/bb963880.aspx).
 
